@@ -409,14 +409,14 @@ from nombre_del_paquete import FuncionEspecifica
 
 
       import matplotlib
-matplotlib.use("Agg")
-import matplotlib.pyplot as plt
-import flet as ft
-import flet_charts as fch
+        matplotlib.use("Agg")
+        import matplotlib.pyplot as plt
+        import flet as ft
+        import flet_charts as fch
 
 
 
-def generar_grafica_barras():
+    def generar_grafica_barras():
     productos = ["A", "B", "C", "D"]
     ventas = [15, 30, 45, 10]
     fig, ax = plt.subplots(figsize=(4, 3))
@@ -426,7 +426,7 @@ def generar_grafica_barras():
     return fig
 
 
-def generar_grafica_lineas():
+    def generar_grafica_lineas():
     meses = ["Ene", "Feb", "Mar", "Abr", "May"]
     rendimiento = [10, 25, 18, 40, 35]
     fig, ax = plt.subplots(figsize=(4, 3))
@@ -437,7 +437,7 @@ def generar_grafica_lineas():
     return fig
 
 
-def generar_grafica_pastel():
+    def generar_grafica_pastel():
     categorias = ["Electrónica", "Ropa", "Alimentos", "Hogar", "Otros"]
     valores = [35, 25, 20, 12, 8]
     colores = ["#4e79a7", "#f28e2b", "#e15759", "#76b7b2", "#59a14f"]
@@ -462,10 +462,10 @@ def generar_grafica_pastel():
 
 
 
-CHART_W = 420
-CHART_H = 320
+        CHART_W = 420
+        CHART_H = 320
 
-def main(page: ft.Page):
+    def main(page: ft.Page):
     page.title = "Dashboard TAP"
     page.theme_mode = ft.ThemeMode.LIGHT
     page.scroll = ft.ScrollMode.AUTO
@@ -718,12 +718,12 @@ def main(page: ft.Page):
 from dataclasses import dataclass, field
 
 
-@dataclass
-class DatosUsuario:
-    """
-    Dataclass que almacena únicamente los DATOS del perfil.
+    @dataclass
+    class DatosUsuario:
+        """
+        Dataclass que almacena únicamente los DATOS del perfil.
     
-    @dataclass genera automáticamente:
+        @dataclass genera automáticamente:
       - __init__(self, nombre, rol, color_borde)
       - __repr__(self)
       - __eq__(self)
