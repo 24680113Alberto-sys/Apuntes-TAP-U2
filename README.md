@@ -715,7 +715,7 @@ from nombre_del_paquete import FuncionEspecifica
 ###  Ejemplos de código
 
       import flet as ft
-from dataclasses import dataclass, field
+        from dataclasses import dataclass, field
 
 
     @dataclass
@@ -754,8 +754,8 @@ from dataclasses import dataclass, field
             raise ValueError("El rol no puede estar vacío")
 
 
-class ControladorTarjeta:
-    """
+        class ControladorTarjeta:
+        """
     Clase separada que maneja la lógica del componente.
     
     Recibe un DatosUsuario y construye el widget de Flet.
