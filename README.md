@@ -821,7 +821,7 @@ from nombre_del_paquete import FuncionEspecifica
         )
 
 
-def main(page: ft.Page):
+    def main(page: ft.Page):
     page.title = "Versión: Dataclasses"
     page.horizontal_alignment = ft.CrossAxisAlignment.CENTER
     page.bgcolor = ft.Colors.GREY_100
@@ -855,7 +855,7 @@ def main(page: ft.Page):
     )
 
 
-ft.app(target=main)
+        ft.app(target=main)
 
 
 ## Bibliografía
