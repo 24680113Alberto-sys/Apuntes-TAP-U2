@@ -415,9 +415,6 @@ import flet as ft
 import flet_charts as fch
 
 
-# ─────────────────────────────────────────
-# FUNCIONES DE GRÁFICAS ESTÁTICAS
-# ─────────────────────────────────────────
 
 def generar_grafica_barras():
     productos = ["A", "B", "C", "D"]
@@ -464,9 +461,6 @@ def generar_grafica_pastel():
     return fig
 
 
-# ─────────────────────────────────────────
-# FUNCIÓN PRINCIPAL
-# ─────────────────────────────────────────
 
 CHART_W = 420
 CHART_H = 320
@@ -483,10 +477,7 @@ def main(page: ft.Page):
         weight=ft.FontWeight.BOLD,
     )
 
-    # ── Gráficas estáticas ───────────────────
-    # CLAVE: el Container tiene width y height fijos → expand=True
-    # en MatplotlibChart no genera infinito porque el padre está acotado.
-    fig1 = generar_grafica_barras()
+    
     c1 = ft.Container(
         content=fch.MatplotlibChart(figure=fig1, expand=True),
         border=ft.border.all(1, ft.Colors.BLACK12),
@@ -522,9 +513,7 @@ def main(page: ft.Page):
     )
     plt.close(fig3)
 
-    # ─────────────────────────────────────────
-    # CONSTRUCTOR INTERACTIVO
-    # ─────────────────────────────────────────
+  
 
     selector_tipo = ft.Dropdown(
         label="Tipo de gráfica",
@@ -559,8 +548,7 @@ def main(page: ft.Page):
     )
     mensaje_error = ft.Text("", color=ft.Colors.RED_400, size=11)
 
-    # Contenedor con dimensiones FIJAS para la gráfica dinámica
-    # Así expand=True dentro tiene límites y no genera infinito
+   
     contenedor_chart = ft.Container(
         content=ft.Text(
             "Tu gráfica aparecerá aquí",
@@ -651,10 +639,7 @@ def main(page: ft.Page):
         ax.set_title(titulo, fontsize=9, weight="bold")
         plt.tight_layout()
 
-        # ✅ expand=True funciona porque contenedor_chart tiene width y height fijos
-        contenedor_chart.content = fch.MatplotlibChart(figure=fig, expand=True)
-        plt.close(fig)
-        page.update()
+        
 
     boton_generar = ft.ElevatedButton(
         content=ft.Row(
@@ -732,16 +717,6 @@ def main(page: ft.Page):
       import flet as ft
 from dataclasses import dataclass, field
 
-# ============================================================
-# VERSIÓN CON DATACLASSES
-# ============================================================
-# dataclass se usa para estructurar los DATOS del componente
-# de forma declarativa. La UI se construye en una función aparte
-# que "ensambla" el widget usando esos datos.
-# 
-# IMPORTANTE: ft.Container/ft.Control NO son compatibles con
-# @dataclass directamente (tienen metaclases propias de Flet),
-# por eso separamos: datos (dataclass) + lógica UI (función/clase).
 
 @dataclass
 class DatosUsuario:
